@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ShoppingBag } from 'lucide-react'
 
 import { NAVBAR_LINK } from '@/lib/config/marketing'
+import { routes } from '@/lib/config/routes'
 
 
 export function Navbar() {
@@ -24,7 +25,7 @@ export function Navbar() {
       </div>
 
       <Link
-        href={"/"}
+        href={routes.cartRoute()}
         className='text-xl text-zinc-600 font-bold transition ease-out hover:text-black hover:underline'
       >
         Cart

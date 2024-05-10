@@ -1,13 +1,14 @@
 import type { TLinks } from "../types/root.types";
+import { routes } from "./routes";
 
 
 export const NAVBAR_LINK: TLinks[] = [
   {
     label: 'Features',
-    href: '/features',
+    href: routes.featuresRoute(),
   },
   {
     label: 'Products',
-    href: '/products',
+    href: routes.productsRoute(),
   },
 ]

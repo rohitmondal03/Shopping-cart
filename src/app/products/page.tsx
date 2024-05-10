@@ -1,10 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Eye, Star, ShoppingCart } from "lucide-react";
-
 import type { TProducts } from "@/lib/types/root.types"
 import { env } from "@/env"
-import ProductCard from "@/components/product-card";
+import { ProductCard } from "@/components/product-card";
 
 
 export default async function ProductsPage() {
@@ -21,9 +17,9 @@ export default async function ProductsPage() {
         Products
       </h1>
 
-      <div className="grid grid-cols-3 gap-10 px-10">
+      <div className="grid grid-cols-4 gap-10 px-10">
         {data.map((product) => (
-          <ProductCard {...product} />
+          <ProductCard key={product.id} {...product} />
         ))}
       </div>
     </section>
