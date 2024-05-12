@@ -1,11 +1,16 @@
+"use client"
+
 import Link from 'next/link'
 import { ShoppingBag } from 'lucide-react'
 
-import { NAVBAR_LINK } from '@/lib/config/marketing'
 import { routes } from '@/lib/config/routes'
+import { NAVBAR_LINK } from '@/lib/config/marketing'
+import { useAppSelector } from '@/lib/hooks/store.hooks'
 
 
 export function Navbar() {
+  const cartItems = useAppSelector((state) => state.cart);
+
   return (
     <nav className='flex items-center justify-between py-8 px-28 border-b-2 border-gray-400'>
       <div className='flex items-center gap-12'>
@@ -26,9 +31,10 @@ export function Navbar() {
 
       <Link
         href={routes.cartRoute()}
-        className='text-xl text-zinc-600 font-bold transition ease-out hover:text-black hover:underline'
+        className='flex items-center gap-2 text-xl text-zinc-600 font-bold transition ease-out hover:text-black hover:underline'
       >
-        Cart
+        Cart 
+        <span>{cartItems.length > 0 && `(${cartItems.length})`}</span>
       </Link>
     </nav>
   )
